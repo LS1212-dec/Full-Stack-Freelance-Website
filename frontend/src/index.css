@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10b981; /* Shift primary to a crisp Fiverr-style green */
+  --color-primary-hover: #059669;
+  --color-secondary: #3b82f6;
+  --color-secondary-hover: #2563eb;
+  
+  --color-dark-bg: #0f172a;
+  --color-dark-card: #1e293b;
+  --color-dark-border: #334155;
+  --color-dark-text: #f8fafc;
+  --color-dark-textMuted: #94a3b8;
+  
+  /* Upgraded Light Theme */
+  --color-light-bg: #f8fafc; /* Subtle slate-50 backplate */
+  --color-light-card: #ffffff; /* Crisp white cards */
+  --color-light-border: #e2e8f0;
+  --color-light-text: #0f172a;
+  --color-light-textMuted: #64748b;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-light-bg text-light-text font-sans transition-colors duration-300;
+  }
+  
+  .dark {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-bold transition-all duration-300 transform active:scale-[0.98];
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-hover shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-hover shadow-sm hover:shadow-md;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-white;
+  }
+
+  .card {
+    /* Upgraded Soft Shadows */
+    @apply bg-light-card border border-light-border rounded-xl transition-all duration-300 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)];
+  }
+  
+  .dark .card {
+    @apply bg-dark-card border-dark-border shadow-none hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)];
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-light-border bg-white text-light-text focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all;
+  }
+  
+  .dark .input-field {
+    @apply bg-dark-bg border-dark-border text-dark-text focus:ring-primary/50;
+  }
+  
+  .label-text {
+    @apply block text-sm font-semibold text-light-text mb-2;
+  }
+
+  .dark .label-text {
+    @apply text-dark-text;
+  }
+}
+
+/* Base custom utility classes */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
